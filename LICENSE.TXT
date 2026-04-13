@@ -3,7 +3,7 @@ Apache License
                 
 Copyright © 2026 UChicago Argonne, LLC All right reserved
 
-Title: chronos
+Title: chronos: python package for timing and profiling code execution, with GPU support
 
 ARGONNE NATIONAL LABORATORY, WITH A FACILITY IN THE STATE OF ILLINOIS, IS OWNED BY THE UNITED STATES GOVERNMENT, AND OPERATED BY UCHICAGO ARGONNE, LLC UNDER PROVISION OF A CONTRACT WITH THE DEPARTMENT OF ENERGY.
 

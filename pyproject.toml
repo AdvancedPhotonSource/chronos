@@ -2,7 +2,7 @@
 name = "chronos"
 authors = [{name = "Hanna Ruth", email = "hruth@anl.gov"}]
 version = "1.0.0"
-description = "Package for timing and profiling code execution, with GPU synchronization support."
+description = "python package for timing and profiling code execution, with GPU support."
 dependencies = [
     "h5py",
     "matplotlib",
