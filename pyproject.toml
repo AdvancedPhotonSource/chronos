@@ -8,24 +8,13 @@ dependencies = [
     "matplotlib",
     "numpy",
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.0"
 
 [project.optional-dependencies]
-dev = ["pytest>=7.0"]
 cupy = ["cupy"]
 cupy11 = ["cupy-cuda11x"]
 cupy12 = ["cupy-cuda12x"]
 cupy13 = ["cupy-cuda13x"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_functions = ["test_*", "*_test"]
-addopts = [
-    "-ra",
-    "--strict-markers",
-    "--strict-config",
-    "-v",
-]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
