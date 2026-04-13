@@ -2,7 +2,11 @@ import time
 from functools import wraps
 from typing import Callable, TypeVar, Optional, Union
 import numpy as np
-import cupy as cp
+try:
+    import cupy as cp
+    CUPY_AVAILABLE = True
+except ImportError:
+    CUPY_AVAILABLE = False
 from collections import defaultdict
 
 # Type variables to retain function signatures
@@ -37,7 +41,7 @@ A numpy array containing measurements of how long it takes to execute
 functions in the `timer` decorator.
 """
 
-list_of_all_gpus = tuple(range(cp.cuda.runtime.getDeviceCount()))
+list_of_all_gpus = tuple(range(cp.cuda.runtime.getDeviceCount())) if CUPY_AVAILABLE else ()
 
 
 def toggle_timer(enable: bool):
@@ -248,6 +252,8 @@ def clear_timer_globals():
 
 
 def wait_for_process_completion_on_all_gpus():
+    if not CUPY_AVAILABLE:
+        return
     for i in list_of_all_gpus:
         with cp.cuda.Device(i):
             cp.cuda.Stream.null.synchronize()
