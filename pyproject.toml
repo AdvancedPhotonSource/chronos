@@ -1,0 +1,35 @@
+[project]
+name = "chronos"
+authors = [{name = "Hanna Ruth", email = "hruth@anl.gov"}]
+version = "1.0.0"
+description = "Package for timing and profiling code execution, with GPU synchronization support."
+dependencies = [
+    "h5py",
+    "matplotlib",
+    "numpy",
+]
+requires-python = ">=3.13"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+cupy = ["cupy"]
+cupy11 = ["cupy-cuda11x"]
+cupy12 = ["cupy-cuda12x"]
+cupy13 = ["cupy-cuda13x"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_functions = ["test_*", "*_test"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "-v",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["chronos*"]
